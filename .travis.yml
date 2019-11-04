@@ -6,6 +6,9 @@ language: cpp
 dist: bionic
 osx_image: xcode10.3
 
+arch:
+- amd64
+- arm64
 compiler:
 - gcc
 - clang
@@ -20,6 +23,12 @@ env:
 - GLOG=0 SHARED_LIB=0 BUILD_TYPE=RelWithDebInfo
 - GLOG=0 SHARED_LIB=1 BUILD_TYPE=Debug
 - GLOG=0 SHARED_LIB=1 BUILD_TYPE=RelWithDebInfo
+
+matrix:
+  exclude:
+  # ARM is only supported on Linux.
+  - arch: arm64
+    os: osx
 
 addons:
   apt:
