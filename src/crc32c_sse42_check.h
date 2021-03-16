@@ -37,7 +37,7 @@ inline bool CanUseSse42() {
 namespace crc32c {
 
 inline bool CanUseSse42() {
-  unsigned int eax, ebx, ecx, edx;
+  unsigned int eax = 0, ebx = 0, ecx = 0, edx = 0;
   return __get_cpuid(1, &eax, &ebx, &ecx, &edx) && ((ecx & (1 << 20)) != 0);
 }
 
