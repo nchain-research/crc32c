@@ -217,6 +217,9 @@ configure_file(
 
 include_directories("${PROJECT_BINARY_DIR}/include")
 
+# Set visibility properties policy
+cmake_policy(SET CMP0063 NEW)
+
 # ARM64 CRC32C code is built separately, so we don't accidentally compile
 # unsupported instructions into code that gets run without ARM32 support.
 add_library(crc32c_arm64 OBJECT "")
